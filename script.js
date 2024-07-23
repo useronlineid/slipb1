@@ -48,6 +48,7 @@ function updateDisplay() {
     const bank = document.getElementById('bank').value || '-';
     const amount11 = document.getElementById('amount11').value || '-';
     const datetime = document.getElementById('datetime').value || '-';
+    const selectedImage = document.getElementById('imageSelect').value || '';
     const QRCode = document.getElementById('QRCode').value || '';
 
     let bankLogoUrl = '';
@@ -150,6 +151,20 @@ function updateDisplay() {
             
             drawText(ctx, `${QRCode}`, 238.9, 599.0, '33px Kanit', '#4e4e4e', '500', 'left', 1.5, 5, 0, 0, 500, 0);
             drawImage(ctx, 'https://github.com/useronlineid/Theslipcame/blob/main/BBL2.png?raw=true', 160.5, 531.5, 43, 43);  
+       
+               
+          
+            // Draw the selected image
+            if (selectedImage) {
+                const customImage = new Image();
+                customImage.src = selectedImage;
+                customImage.onload = function() {
+                    ctx.drawImage(customImage, 0, 0, 607, 1200); // Adjust the position and size as needed
+                }
+            }
+            //ถึงที่นี่
+            
+            
         }
     }
 }
